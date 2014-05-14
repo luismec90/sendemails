@@ -1,0 +1,12 @@
+#olvide-pasword{
+    float:right;
+    font-size: 80%;
+    position: relative; 
+    top:-10px;
+}
+#loginbox{
+   margin-top: 30px
+}
+#loginform .input-group{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,18 @@
+#contenedor{
+    margin-top: 120px;
+}
+tr.shadow {
+    border-left:3px solid orangered;
+}
+#tabla-estudiantes td.abordo,#tabla-estudiantes td.noabordo,#header-tabla-estudiantes th.abordo,#header-tabla-estudiantes th.noabordo{
+    text-align: center;
+}
+#header-tabla-estudiantes th.abordo span,#header-tabla-estudiantes th.noabordo span{
+   
+     padding-left: 15px;
+   
+}
+#tabla-principal{
+    border: 1px solid #ddd;
+    border-top: none;
+}

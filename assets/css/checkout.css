@@ -1,0 +1,13 @@
+#tabla-principal{
+    border: 1px solid #ddd;
+    border-top: none;
+}
+tr.shadow {
+    border-left:3px solid orangered;
+}
+#tabla-estudiantes td.centrar,#header-tabla-estudiantes th.centrar{
+    text-align: center;
+}
+#header-tabla-estudiantes th.centrar span{
+    padding-left: 15px;
+}
