@@ -64,9 +64,9 @@ class Emails extends CI_Controller {
                 $subject = "Informe de Ruta";
 
                 if ($row->sexo == "femenino") {
-                    $saludo = "Estimada Señora:";
+                    $saludo = "Estimadaa Se&ntilde;ora:";
                 } else {
-                    $saludo = "Estimado Señor:";
+                    $saludo = "Estimado Se&ntilde;or:";
                 }
                 $nombreAcudiente = $row->nombres . " " . $row->apellidos;
                 $nombreEstudiante = $row->nombres_estudiante . " " . $row->apellidos_estudiante;
@@ -161,11 +161,11 @@ class Emails extends CI_Controller {
     private function obtenerFecha() {
         $meses = ["none", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         $date = date('Y-m-d H:i:s');
-        $año = date('Y', strtotime($date));
+        $anio = date('Y', strtotime($date));
         $mes = date('n', strtotime($date));
         $dia = date('d', strtotime($date));
         $hora = date('h:i a', strtotime($date));
-        return "{$meses[$mes]} $dia de $año a la(s) $hora";
+        return "{$meses[$mes]} $dia de $anio a la(s) $hora";
     }
 
     public function enviarEmailsCheckOut() {
@@ -227,9 +227,9 @@ class Emails extends CI_Controller {
                 $subject = "Informe de Ruta";
 
                 if ($row->sexo == "femenino") {
-                    $saludo = "Estimada Señora:";
+                    $saludo = "Estimada Se&ntilde;ora:";
                 } else {
-                    $saludo = "Estimado Señor:";
+                    $saludo = "Estimado Se&ntilde;or:";
                 }
                 $nombreAcudiente = $row->nombres . " " . $row->apellidos;
                 $nombreEstudiante = $row->nombres_estudiante . " " . $row->apellidos_estudiante;

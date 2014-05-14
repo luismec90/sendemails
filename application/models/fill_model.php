@@ -941,29 +941,29 @@ class Fill_model extends CI_Model {
         $this->db->empty_table('asunto');
         $data = array(
             'id' => 1,
-            'asunto' => 'Cierre de Vía',
-            'mensaje' => 'Le informamos que la ruta presentará retrasos el día de hoy en el recorrido debido al cierre de la vía.',
+            'asunto' => 'Cierre de V&iacute;a',
+            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy en el recorrido debido al cierre de la v&iacute;a.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 2,
-            'asunto' => 'Tráfico en la Zona',
-            'mensaje' => 'Le informamos que la ruta presentará retrasos el día de hoy en el recorrido debido al alto tráfico en la zona.',
+            'asunto' => 'Tr&aacute;fico en la Zona',
+            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy en el recorrido debido al alto tr&aacute;fico en la zona.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 3,
             'asunto' => 'Retraso de Ruta',
-            'mensaje' => 'Le informamos que la ruta presentará retrasos el día de hoy para recoger a su hijo.',
+            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy para recoger a su hijo.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 4,
             'asunto' => 'Cambio de Recorrido',
-            'mensaje' => 'Le informamos que la ruta presentará cambios en el recorrido el día de hoy previamente autorizados por el colegio.',
+            'mensaje' => 'Le informamos que la ruta presentar&aacute; cambios en el recorrido el d&iacute;a de hoy previamente autorizados por el colegio.',
         );
         $this->db->insert('asunto', $data);
     }
