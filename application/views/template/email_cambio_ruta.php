@@ -74,10 +74,10 @@
                                         <td style="padding:2px 0; color:#555;"><img width="12" height="12" src="<?= base_url() ?>assets/img/icono_web.png"> www.nationaltours.com.co</td>
                                     </tr>
                                     <tr >
-                                        <td style="padding-top:15px; color:#555; font-size: 10px;">Copyrigth © 2014 National Tours</td>
+                                        <td style="padding-top:15px; color:#555; font-size: 10px;">Copyrigth &#169; 2014 National Tours</td>
                                     </tr>
                                     <tr >
-                                        <td style="padding-top:5px; color:#555; font-size: 10px;">Si no quieres recibir m&&aacute;s estos e-mails <a href="<?= base_url() ?>unsubscribe?email=<?= $email ?>&token=<?= sha1("$email-nationaltourskey") ?>" target="_blank" style="color:#0965a5; font-weight: bold;">Haz Click Aqu&iacute;</a></td>
+                                        <td style="padding-top:5px; color:#555; font-size: 10px;">Si no quieres recibir m&aacute;s estos e-mails <a href="<?= base_url() ?>unsubscribe?email=<?= $email ?>&token=<?= sha1("$email-nationaltourskey") ?>" target="_blank" style="color:#0965a5; font-weight: bold;">Haz Click Aqu&iacute;</a></td>
                                     </tr>
                                 </tbody>
                             </table>
