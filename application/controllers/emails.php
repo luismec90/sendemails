@@ -64,7 +64,7 @@ class Emails extends CI_Controller {
                 $subject = "Informe de Ruta";
 
                 if ($row->sexo == "femenino") {
-                    $saludo = "Estimadaa Se&ntilde;ora:";
+                    $saludo = "Estimada Se&ntilde;ora:";
                 } else {
                     $saludo = "Estimado Se&ntilde;or:";
                 }
