@@ -17,6 +17,7 @@ class Emails extends CI_Controller {
     }
 
     public function enviarEmails() {
+        $this->load->model('ruta_x_estudiante_model');
         $estudiantes = $this->input->post('estudiante');
         $idRuta = $this->input->post('ruta');
         $where = array("id" => $idRuta);
@@ -72,8 +73,9 @@ class Emails extends CI_Controller {
                 $nombreEstudiante = $row->nombres_estudiante . " " . $row->apellidos_estudiante;
                 $email = $row->email;
                 $parentesco = $row->parentesco;
+                $rutaEstudiante = $this->ruta_x_estudiante_model->obtenerRegistro(array("id_estudiante" => $row->id_estudiante, "id_ruta" => $idRuta));
                 ob_start();
-                if ($row->id_ruta == $idRuta) {
+                if ($rutaEstudiante) {
                     include("application/views/template/email.php");
                 } else {
                     include("application/views/template/email_cambio_ruta.php");

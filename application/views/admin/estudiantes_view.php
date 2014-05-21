@@ -40,7 +40,6 @@
                 <th>Grado</th>
                 <th>Curso</th>
                 <th>Teléfono</th>
-                <th>Ruta</th>
                 <th>Opciones</th>
                 </thead>
                 <?php foreach ($estudiantes as $row) { ?>
@@ -50,7 +49,6 @@
                         <td><?= $row->grado ?></td>
                         <td><?= $row->curso ?></td>
                         <td><?= $row->telefono_casa ?></td>
-                        <td><?= $row->nombre_ruta ?></td>
                         <td> <button class="boton-asignar-acudiente btn btn-info" 
                                      data-id-estudiante="<?= $row->id ?>"
                                      data-nombre="<?= $row->nombres . " " . $row->apellidos ?>"
@@ -64,7 +62,6 @@
                                     title="Cambiar destino"> <span class="glyphicon glyphicon-flag"></span></button> 
                             <button class="boton-editar-estudiante btn btn-primary"
                                     data-id-estudiante="<?= $row->id ?>"
-                                    data-id-ruta="<?= $row->id_ruta ?>"
                                     data-nombres="<?= $row->nombres ?>"
                                     data-apellidos="<?= $row->apellidos ?>"
                                     data-sexo="<?= $row->sexo ?>"   

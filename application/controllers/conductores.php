@@ -75,9 +75,14 @@ class Conductores extends CI_Controller {
     }
 
     public function eliminar() {
+        $this->load->model('ruta_model');
         $idConductor = $this->input->post("idConductor");
         if (!$idConductor) {
             $this->mensaje("Datos inválidos", "error", "conductores");
+        }
+        $rutas = $this->ruta_model->obtenerRegistros(array("id_conductor" => $idConductor));
+        if ($rutas) {
+            $this->mensaje("Primero debe eliminar todas las rutas asociadas a este conductor", "error", "conductores");
         }
         $where = array("id" => $idConductor);
         $this->conductor_model->eliminar($where);

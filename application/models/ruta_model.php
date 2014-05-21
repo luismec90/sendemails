@@ -23,6 +23,10 @@ class Ruta_model extends CI_Model {
         return $this->db->query($query)->result();
     }
 
+    public function obtenerRegistros($where) {
+        return $this->db->get_where('ruta', $where)->result();
+    }
+
     public function crear($data) {
         $this->db->insert('ruta', $data);
     }

@@ -8,7 +8,7 @@ class Acudiente_model extends CI_Model {
     }
 
     public function obtenerAcudientes($idEstudiante) {
-        $query = "SELECT a.id,a.nombres,a.apellidos,a.sexo,a.email,ea.parentesco,e.nombres nombres_estudiante,e.apellidos apellidos_estudiante,e.id_ruta 
+        $query = "SELECT a.id,a.nombres,a.apellidos,a.sexo,a.email,ea.parentesco,e.id id_estudiante,e.nombres nombres_estudiante,e.apellidos apellidos_estudiante
                   FROM estudiante_x_acudiente ea
                   JOIN acudiente a ON a.id=ea.id_acudiente AND a.recibir_emails=1
                   JOIN estudiante e ON e.id=ea.id_estudiante
