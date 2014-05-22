@@ -10,6 +10,7 @@ class Estudiantes extends CI_Controller {
         $this->soyAdmin();
         $this->load->model('ruta_model');
         $this->load->model('estudiante_model');
+        $this->load->model('ruta_x_estudiante_model');
     }
 
     public function index() {
@@ -27,6 +28,9 @@ class Estudiantes extends CI_Controller {
         }
 
         $data["estudiantes"] = $this->estudiante_model->obtenerTodosLosEstudiantes($_GET, $filasPorPagina, $inicio);
+        foreach ($data["estudiantes"] as $row) {
+            $row->rutas = str_replace('"', "'", json_encode($this->ruta_x_estudiante_model->obtenerRegistro(array("id_estudiante" => $row->id))));
+        }
         $data['paginaActiva'] = $paginaActual;
         $data["cantidadRegistros"] = $this->estudiante_model->cantidadRegistros();
         $data["cantidadRegistros"] = $data["cantidadRegistros"][0]->cantidad;
@@ -45,21 +49,20 @@ class Estudiantes extends CI_Controller {
         $nombres = $this->input->post("nombres");
         $apellidos = $this->input->post("apellidos");
         $sexo = $this->input->post("sexo");
-        $ruta = $this->input->post("ruta");
         $grado = $this->input->post("grado");
         $curso = $this->input->post("curso");
         $direccion = $this->input->post("direccion");
         $fechaNacimiento = $this->input->post("fechaNacimiento");
         $telefonoDomocilio = $this->input->post("telefonoDomocilio");
         $celular = $this->input->post("celular");
-        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$ruta || !$grado || !$curso || !$direccion) {
+        $rutas = $this->input->post("rutas");
+        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion) {
             $this->mensaje("Datos inválidos", "error", "estudiantes");
         }
         $this->validarCapacidadRuta($ruta);
         $data = array("nombres" => $nombres,
             "apellidos" => $apellidos,
             "sexo" => $sexo,
-            "id_ruta" => $ruta,
             "grado" => $grado,
             "curso" => $curso,
             "direccion" => $direccion,
@@ -67,7 +70,12 @@ class Estudiantes extends CI_Controller {
             "telefono_casa" => $telefonoDomocilio,
             "celular" => $celular
         );
-        $this->estudiante_model->crear($data);
+        $idEstudiante = $this->estudiante_model->crear($data);
+        foreach ($rutas as $row) {
+            $data = array("id_ruta" => $row,
+                "id_estudiante" => $idEstudiante);
+            $this->ruta_x_estudiante_model->crear($data);
+        }
         $this->mensaje("Estudiante creado exitosamente", "success", "estudiantes");
     }
 
@@ -76,24 +84,25 @@ class Estudiantes extends CI_Controller {
         $nombres = $this->input->post("nombres");
         $apellidos = $this->input->post("apellidos");
         $sexo = $this->input->post("sexo");
-        $ruta = $this->input->post("ruta");
         $grado = $this->input->post("grado");
         $curso = $this->input->post("curso");
         $direccion = $this->input->post("direccion");
         $fechaNacimiento = $this->input->post("fechaNacimiento");
         $telefonoDomocilio = $this->input->post("telefonoDomocilio");
         $celular = $this->input->post("celular");
-        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$ruta || !$grado || !$curso || !$direccion) {
+        $rutas = $this->input->post("rutas");
+        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion) {
             $this->mensaje("Datos inválidos", "error", "estudiantes");
         }
-        $estudiante = $this->estudiante_model->obtenerRegistro(array("id" => $idEstudiante));
-        if ($estudiante[0]->id_ruta != $ruta) {
-            $this->validarCapacidadRuta($ruta);
+        foreach ($rutas as $row) {
+            $rutaEstudiante = $this->ruta_x_estudiante_model->obtenerRegistro(array("id_estudiante" => $idEstudiante, "id_ruta" => $row));
+            if (!$rutaEstudiante) {
+                $this->validarCapacidadRuta($row);
+            }
         }
         $data = array("nombres" => $nombres,
             "apellidos" => $apellidos,
             "sexo" => $sexo,
-            "id_ruta" => $ruta,
             "grado" => $grado,
             "curso" => $curso,
             "direccion" => $direccion,
@@ -103,6 +112,13 @@ class Estudiantes extends CI_Controller {
         );
         $where = array("id" => $idEstudiante);
         $this->estudiante_model->actualizar($data, $where);
+
+        $this->ruta_x_estudiante_model->eliminar(array("id_estudiante" => $idEstudiante));
+        foreach ($rutas as $row) {
+            $data = array("id_ruta" => $row,
+                "id_estudiante" => $idEstudiante);
+            $this->ruta_x_estudiante_model->crear($data);
+        }
         $this->mensaje("Estudiante actualizado exitosamente", "success", "estudiantes");
     }
 
@@ -213,7 +229,7 @@ class Estudiantes extends CI_Controller {
         $ruta = $this->ruta_model->obtenerRuta(array("id" => $idRuta));
         $ocupacionActual = $this->ruta_model->ocupacionActual($idRuta);
         if ($ocupacionActual[0]->cantidad >= $ruta[0]->capacidad) {
-            $this->mensaje("La ruta seleccionada no tiene más asientos disponibles", "error", "estudiantes");
+            $this->mensaje("La ruta {$ruta[0]->nombre} no tiene más asientos disponibles", "error", "estudiantes");
         }
     }
 

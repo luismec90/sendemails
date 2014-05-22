@@ -78,6 +78,7 @@ class Estudiante_model extends CI_Model {
 
     public function crear($data) {
         $this->db->insert('estudiante', $data);
+        return $this->db->insert_id();
     }
 
     public function actualizar($data, $where) {

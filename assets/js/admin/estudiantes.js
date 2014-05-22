@@ -50,6 +50,12 @@ $(function() {
         $("#editar-fecha-nacimiento").val($(this).data("fecha-nacimiento"));
         $("#editar-telefono-domocilio").val($(this).data("telefono"));
         $("#editar-celular").val($(this).data("celular"));
+        var rutas = $(this).data("rutas");
+        rutas = rutas.replace(/'/g, '"');
+        rutas = $.parseJSON(rutas);
+        $.each(rutas, function(index, value) {
+            $("#ruta-" + value.id_ruta).prop("checked", true);
+        });
         $("#modal-editar-estudiante").modal();
     });
     $("#tabla-estudiantes button.boton-eliminar-estudiante").click(function() {
@@ -110,7 +116,7 @@ $(function() {
         $(this).parent().parent().remove();
     });
     $("#buscar").click(function() {
-                $("#coverDisplay").css({
+        $("#coverDisplay").css({
             "opacity": "1",
             "width": "100%",
             "height": "100%"

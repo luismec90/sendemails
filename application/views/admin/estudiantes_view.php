@@ -71,6 +71,7 @@
                                     data-direccion="<?= $row->direccion ?>"
                                     data-telefono="<?= $row->telefono_casa ?>"   
                                     data-celular="<?= $row->celular ?>"
+                                    data-rutas="<?= $row->rutas ?>"
                                     title="Editar" ><span class="glyphicon glyphicon-edit"></span> </button>
                             <button class="boton-eliminar-estudiante btn btn-danger"
                                     data-id-estudiante="<?= $row->id ?>"
@@ -138,45 +139,50 @@
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <label> Ruta: <em class="text-danger">*</em></label>
-                            <select name="ruta" class="form-control" required> 
-                                <option value="">Seleccionar...</option>
-                                <?php foreach ($rutas as $row) { ?>
-                                    <option value="<?= $row->id ?>"><?= $row->nombre ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
                             <label> Grado: <em class="text-danger">*</em></label>
                             <input name="grado" class="form-control"  type="text" required="">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Curso: <em class="text-danger">*</em></label>
                             <input name="curso" class="form-control"  type="text" required="">
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección: <em class="text-danger">*</em></label>
                             <input name="direccion" class="form-control"  type="text" required="">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
                             <input name="fechaNacimiento" class="form-control date-picker"  type="text">
                         </div>
-
-                    </div>
-                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
                             <input name="telefonoDomocilio" class="form-control"  type="text">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
                             <input name="celular" class="form-control"  type="text">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <br>
+                            <label class="text-muted"> Asociar rutas:</label>
+                        </div>
+                        <?php foreach ($rutas as $row) { ?>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="rutas[]" value="<?= $row->id ?>" type="checkbox"><?= $row->nombre ?>
+                                    </label>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -220,45 +226,52 @@
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <label> Ruta: <em class="text-danger">*</em></label>
-                            <select id="editar-ruta" name="ruta" class="form-control" required> 
-                                <option value="">Seleccionar...</option>
-                                <?php foreach ($rutas as $row) { ?>
-                                    <option value="<?= $row->id ?>"><?= $row->nombre ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
                             <label> Grado: <em class="text-danger">*</em></label>
                             <input id="editar-grado"  name="grado" class="form-control"  type="text" required="">
                         </div>
+                    </div>
+                    <div class="row">
+
                         <div class="col-xs-12 col-sm-6">
                             <label> Curso: <em class="text-danger">*</em></label>
                             <input id="editar-curso"  name="curso" class="form-control"  type="text" required="">
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección: <em class="text-danger">*</em></label>
                             <input id="editar-direccion"  name="direccion" class="form-control"  type="text" required="">
                         </div>
+                    </div>
+                    <div class="row">
+
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
                             <input id="editar-fecha-nacimiento" name="fechaNacimiento" class="form-control date-picker"  type="text">
                         </div>
-
-                    </div>
-                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
                             <input id="editar-telefono-domocilio" name="telefonoDomocilio" class="form-control"  type="text">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
                             <input id="editar-celular" name="celular" class="form-control"  type="text">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <br>
+                            <label class="text-muted"> Asociar rutas:</label>
+                        </div>
+                        <?php foreach ($rutas as $row) { ?>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="ruta-<?= $row->id ?>" name="rutas[]" value="<?= $row->id ?>" type="checkbox"><?= $row->nombre ?>
+                                    </label>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="modal-footer">

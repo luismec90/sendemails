@@ -62,11 +62,12 @@ class Rutas extends CI_Controller {
 
     public function eliminar() {
         $this->load->model('estudiante_model');
+        $this->load->model('ruta_x_estudiante_model');
         $idRuta = $this->input->post("idRuta");
         if (!$idRuta) {
             $this->mensaje("Datos inválidos", "error", "rutas");
         }
-        $estudiantes = $this->estudiante_model->obtenerRegistro(array("id_ruta" => $idRuta));
+        $estudiantes = $this->ruta_x_estudiante_model->obtenerRegistro(array("id_ruta" => $idRuta));
         if ($estudiantes) {
             $this->mensaje("Primero debe eliminar todos los estudiantes asociados a esta ruta", "error", "rutas");
         }

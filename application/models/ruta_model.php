@@ -40,7 +40,7 @@ class Ruta_model extends CI_Model {
     }
 
     public function ocupacionActual($idRuta) {
-        $query = "SELECT COUNT(*) cantidad FROM estudiante WHERE id_ruta='$idRuta'";
+        $query = "SELECT COUNT(*) cantidad FROM ruta_x_estudiante WHERE id_ruta='$idRuta'";
         return $this->db->query($query)->result();
     }
 
