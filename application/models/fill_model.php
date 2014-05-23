@@ -10,8 +10,8 @@ class Fill_model extends CI_Model {
     }
 
     function poblarBD() {
-       // echo "Disabled";
-     //   exit();
+        echo "Disabled";
+        exit();
         $this->eliminarDatos();
         $this->usuario();
         $this->conductor();

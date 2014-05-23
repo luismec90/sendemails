@@ -20,8 +20,8 @@ class Acudiente_model extends CI_Model {
     public function buscarAcudientes($query) {
         $query = "SELECT DISTINCT(a.id),a.id,a.nombres,a.apellidos,a.email
                   FROM acudiente a 
-                  JOIN estudiante_x_acudiente ea ON ea.id_acudiente=a.id
-                  JOIN estudiante e ON e.id=ea.id_estudiante
+                  LEFT JOIN estudiante_x_acudiente ea ON ea.id_acudiente=a.id
+                  LEFT JOIN estudiante e ON e.id=ea.id_estudiante
                   WHERE CONCAT(a.nombres,' ',a.apellidos) LIKE '%$query%'
                   OR a.email LIKE '%$query%'
                   OR CONCAT(e.nombres,' ',e.apellidos) LIKE '%$query%'";

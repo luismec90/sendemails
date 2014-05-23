@@ -59,7 +59,9 @@ class Estudiantes extends CI_Controller {
         if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion) {
             $this->mensaje("Datos inválidos", "error", "estudiantes");
         }
-        $this->validarCapacidadRuta($ruta);
+        foreach ($rutas as $row) {
+            $this->validarCapacidadRuta($row);
+        }
         $data = array("nombres" => $nombres,
             "apellidos" => $apellidos,
             "sexo" => $sexo,
