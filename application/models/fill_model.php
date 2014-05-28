@@ -10,8 +10,7 @@ class Fill_model extends CI_Model {
     }
 
     function poblarBD() {
-        echo "Disabled";
-        exit();
+     
         $this->eliminarDatos();
         $this->usuario();
         $this->conductor();
@@ -76,7 +75,7 @@ class Fill_model extends CI_Model {
             'sexo' => 'masculino',
             'fecha_nacimiento' => '1980-05-12',
             'usuario' => 'admin1',
-            'password' => sha1("5484175"),
+            'password' => sha1("123"),
             'email' => 'luismec90@gmail.com',
             'celular' => '311 3727751',
             'rol' => 'admin'

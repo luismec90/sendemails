@@ -28,14 +28,14 @@ class Estudiantes extends CI_Controller {
         }
 
         $data["estudiantes"] = $this->estudiante_model->obtenerTodosLosEstudiantes($_GET, $filasPorPagina, $inicio);
-        foreach ($data["estudiantes"] as $row) {
-            $row->rutas = str_replace('"', "'", json_encode($this->ruta_x_estudiante_model->obtenerRegistro(array("id_estudiante" => $row->id))));
-        }
         $data['paginaActiva'] = $paginaActual;
         $data["cantidadRegistros"] = $this->estudiante_model->cantidadRegistros();
         $data["cantidadRegistros"] = $data["cantidadRegistros"][0]->cantidad;
         $data["filasPorPagina"] = $filasPorPagina;
         $data['cantidadPaginas'] = ceil($data["cantidadRegistros"] / $filasPorPagina);
+        foreach ($data["estudiantes"] as $row) {
+            $row->rutas = str_replace('"', "'", json_encode($this->ruta_x_estudiante_model->obtenerRegistro(array("id_estudiante" => $row->id))));
+        }
 
         $data["css"] = array("libs/jQuery-ui-1.10.4/css/smoothness/jquery-ui-1.10.4.custom.min");
         $data["js"] = array("libs/jQuery-ui-1.10.4/js/jquery-ui-1.10.4.custom.min", "libs/jQuery-Autocomplete/src/jquery.autocomplete", "js/admin/estudiantes");

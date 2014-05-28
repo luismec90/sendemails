@@ -39,7 +39,7 @@
                             <li class="<?= ($tab == "redactaremail") ? "active" : ""; ?>"><a href="<?= base_url() ?>redactaremail/<?= $ruta[0]->id ?>/<?= $origen ?>">Redactar e-mail</a>
                             </li>
                         </ul>
-                    <?php } else if ($tab == "conductores" || $tab == "rutas" || $tab == "acudientes" || $tab == "estudiantes" || $tab == "historico" || $tab == "copia_email" ) { ?>
+                    <?php } else if ($tab == "conductores" || $tab == "rutas" || $tab == "acudientes" || $tab == "estudiantes" || $tab == "historico" || $tab == "copia_email" || $tab == "guias" ) { ?>
                         <ul class="nav navbar-nav">
                             <li class="<?= ($tab == "conductores") ? "active" : ""; ?>"><a href="<?= base_url() ?>conductores">Conductores</a>
                             </li>
@@ -52,6 +52,8 @@
                             <li class="<?= ($tab == "historico") ? "active" : ""; ?>"><a href="<?= base_url() ?>historico">Informe de servicios</a>
                             </li>
                             <li class="<?= ($tab == "copia_email") ? "active" : ""; ?>"><a href="<?= base_url() ?>copia_email">Enviar copia</a>
+                            </li>
+                             <li class="<?= ($tab == "guias") ? "active" : ""; ?>"><a href="<?= base_url() ?>guias">Guias</a>
                             </li>
                         </ul>
                     <?php } ?>
