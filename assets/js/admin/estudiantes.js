@@ -51,11 +51,13 @@ $(function() {
         $("#editar-telefono-domocilio").val($(this).data("telefono"));
         $("#editar-celular").val($(this).data("celular"));
         var rutas = $(this).data("rutas");
-        rutas = rutas.replace(/'/g, '"');
-        rutas = $.parseJSON(rutas);
-        $.each(rutas, function(index, value) {
-            $("#ruta-" + value.id_ruta).prop("checked", true);
-        });
+        if (rutas != "") {
+            rutas = rutas.replace(/'/g, '"');
+            rutas = $.parseJSON(rutas);
+            $.each(rutas, function(index, value) {
+                $("#ruta-" + value.id_ruta).prop("checked", true);
+            });
+        }
         $("#modal-editar-estudiante").modal();
     });
     $("#tabla-estudiantes button.boton-eliminar-estudiante").click(function() {

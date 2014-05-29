@@ -55,15 +55,15 @@ class Estudiante_model extends CI_Model {
 
     public function obtenerTodosLosEstudiantes($criterios, $filasPorPagina, $inicio) {
         $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT  e.*
-                 FROM estudiante e
-                 JOIN ruta_x_estudiante re ON re.id_estudiante=e.id";
+					 FROM estudiante e
+					 LEFT JOIN ruta_x_estudiante re ON re.id_estudiante=e.id
+					 WHERE TRUE ";
         $query.=(isset($criterios["apellidos"])) ? " AND e.apellidos LIKE '%{$criterios["apellidos"]}%'" : "";
         $query.=(isset($criterios["nombres"])) ? " AND e.nombres LIKE '%{$criterios["nombres"]}%'" : "";
         $query.=(isset($criterios["grado"])) ? " AND e.grado LIKE '%{$criterios["grado"]}%'" : "";
         $query.=(isset($criterios["curso"])) ? " AND e.curso LIKE '%{$criterios["curso"]}%'" : "";
         $query.=(isset($criterios["ruta"])) ? " AND re.id_ruta='{$criterios["ruta"]}'" : "";
         $query.=" ORDER BY e.apellidos ASC LIMIT $inicio,$filasPorPagina";
-        //   echo $query;
         return $this->db->query($query)->result();
     }
 
