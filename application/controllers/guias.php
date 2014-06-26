@@ -52,6 +52,9 @@ class Guias extends CI_Controller {
             "celular" => $celular,
             "email" => $email,
             "rol" => "usuario");
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
+        }
         $this->usuario_model->crear($data);
         $this->mensaje("Guía creada exitosamente", "success", "guias");
     }
@@ -91,6 +94,9 @@ class Guias extends CI_Controller {
                 "celular" => $celular,
                 "email" => $email,
                 "rol" => "usuario");
+        }
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
         }
         $where = array("id" => $idUsuario);
         $this->usuario_model->actualizar($data, $where);

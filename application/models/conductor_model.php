@@ -11,11 +11,11 @@ class Conductor_model extends CI_Model {
         $query = "SELECT * 
                 FROM conductor
                 WHERE true";
-        $query.=(isset($criterios["apellidos"])) ? " AND apellidos LIKE '%{$criterios["apellidos"]}%'" : "";
-        $query.=(isset($criterios["nombres"])) ? " AND nombres LIKE '%{$criterios["nombres"]}%'" : "";
-        $query.=(isset($criterios["cedula"])) ? " AND cedula LIKE '%{$criterios["cedula"]}%'" : "";
-        $query.=(isset($criterios["celular"])) ? " AND celular LIKE '%{$criterios["celular"]}%'" : "";
-        $query.=(isset($criterios["email"])) ? " AND email LIKE '%{$criterios["email"]}%'" : "";
+        $query.=(isset($criterios["apellidos"])) ? " AND apellidos ILIKE '%{$criterios["apellidos"]}%'" : "";
+        $query.=(isset($criterios["nombres"])) ? " AND nombres ILIKE '%{$criterios["nombres"]}%'" : "";
+        $query.=(isset($criterios["cedula"])) ? " AND cedula ILIKE '%{$criterios["cedula"]}%'" : "";
+        $query.=(isset($criterios["celular"])) ? " AND celular ILIKE '%{$criterios["celular"]}%'" : "";
+        $query.=(isset($criterios["email"])) ? " AND email ILIKE '%{$criterios["email"]}%'" : "";
         $query.=" ORDER BY apellidos ASC";
         return $this->db->query($query)->result();
     }

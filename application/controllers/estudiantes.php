@@ -29,7 +29,7 @@ class Estudiantes extends CI_Controller {
 
         $data["estudiantes"] = $this->estudiante_model->obtenerTodosLosEstudiantes($_GET, $filasPorPagina, $inicio);
         $data['paginaActiva'] = $paginaActual;
-        $data["cantidadRegistros"] = $this->estudiante_model->cantidadRegistros();
+        $data["cantidadRegistros"] = $this->estudiante_model->cantidadRegistros($_GET);
         $data["cantidadRegistros"] = $data["cantidadRegistros"][0]->cantidad;
         $data["filasPorPagina"] = $filasPorPagina;
         $data['cantidadPaginas'] = ceil($data["cantidadRegistros"] / $filasPorPagina);
@@ -74,14 +74,20 @@ class Estudiantes extends CI_Controller {
             "telefono_casa" => $telefonoDomocilio,
             "celular" => $celular
         );
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
+        }
         $idEstudiante = $this->estudiante_model->crear($data);
+
         if ($rutas) {
+
             foreach ($rutas as $row) {
                 $data = array("id_ruta" => $row,
                     "id_estudiante" => $idEstudiante);
                 $this->ruta_x_estudiante_model->crear($data);
             }
         }
+
         $this->mensaje("Estudiante creado exitosamente", "success", "estudiantes");
     }
 
@@ -118,6 +124,9 @@ class Estudiantes extends CI_Controller {
             "telefono_casa" => $telefonoDomocilio,
             "celular" => $celular
         );
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
+        }
         $where = array("id" => $idEstudiante);
         $this->estudiante_model->actualizar($data, $where);
 

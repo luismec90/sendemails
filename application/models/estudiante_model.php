@@ -31,14 +31,14 @@ class Estudiante_model extends CI_Model {
     public function buscarEstudiantesPorNombres($query) {
         $query = "SELECT id,nombres,apellidos 
                   FROM estudiante
-                  WHERE nombres LIKE '%$query%'";
+                  WHERE nombres ILIKE '%$query%'";
         return $this->db->query($query)->result();
     }
 
     public function buscarEstudiantesPorApellidos($query) {
         $query = "SELECT id,nombres,apellidos 
                   FROM estudiante
-                  WHERE apellidos LIKE '%$query%'";
+                  WHERE apellidos ILIKE '%$query%'";
         return $this->db->query($query)->result();
     }
 
@@ -47,28 +47,36 @@ class Estudiante_model extends CI_Model {
                   FROM acudiente a
                   JOIN estudiante_x_acudiente ea ON ea.id_acudiente=a.id
                   JOIN estudiante e ON e.id=ea.id_estudiante
-                  WHERE a.nombres LIKE '%$query%'
-                  OR a.apellidos LIKE '%$query%'";
+                  WHERE a.nombres ILIKE '%$query%'
+                  OR a.apellidos ILIKE '%$query%'";
         //   echo $query;
         return $this->db->query($query)->result();
     }
 
     public function obtenerTodosLosEstudiantes($criterios, $filasPorPagina, $inicio) {
-        $query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT  e.*
+        $query = "SELECT DISTINCT  e.*
 					 FROM estudiante e
 					 LEFT JOIN ruta_x_estudiante re ON re.id_estudiante=e.id
 					 WHERE TRUE ";
-        $query.=(isset($criterios["apellidos"])) ? " AND e.apellidos LIKE '%{$criterios["apellidos"]}%'" : "";
-        $query.=(isset($criterios["nombres"])) ? " AND e.nombres LIKE '%{$criterios["nombres"]}%'" : "";
-        $query.=(isset($criterios["grado"])) ? " AND e.grado LIKE '%{$criterios["grado"]}%'" : "";
-        $query.=(isset($criterios["curso"])) ? " AND e.curso LIKE '%{$criterios["curso"]}%'" : "";
+        $query.=(isset($criterios["apellidos"])) ? " AND e.apellidos ILIKE '%{$criterios["apellidos"]}%'" : "";
+        $query.=(isset($criterios["nombres"])) ? " AND e.nombres ILIKE '%{$criterios["nombres"]}%'" : "";
+        $query.=(isset($criterios["grado"])) ? " AND e.grado ILIKE '%{$criterios["grado"]}%'" : "";
+        $query.=(isset($criterios["curso"])) ? " AND e.curso ILIKE '%{$criterios["curso"]}%'" : "";
         $query.=(isset($criterios["ruta"])) ? " AND re.id_ruta='{$criterios["ruta"]}'" : "";
-        $query.=" ORDER BY e.apellidos ASC LIMIT $inicio,$filasPorPagina";
+        $query.=" ORDER BY e.apellidos ASC LIMIT $filasPorPagina OFFSET $inicio";
         return $this->db->query($query)->result();
     }
 
-    public function cantidadRegistros() {
-        $query = "SELECT found_rows() AS cantidad";
+    public function cantidadRegistros($criterios) {
+        $query = "SELECT count(DISTINCT  e.*) cantidad
+					 FROM estudiante e
+					 LEFT JOIN ruta_x_estudiante re ON re.id_estudiante=e.id
+					 WHERE TRUE ";
+        $query.=(isset($criterios["apellidos"])) ? " AND e.apellidos ILIKE '%{$criterios["apellidos"]}%'" : "";
+        $query.=(isset($criterios["nombres"])) ? " AND e.nombres ILIKE '%{$criterios["nombres"]}%'" : "";
+        $query.=(isset($criterios["grado"])) ? " AND e.grado ILIKE '%{$criterios["grado"]}%'" : "";
+        $query.=(isset($criterios["curso"])) ? " AND e.curso ILIKE '%{$criterios["curso"]}%'" : "";
+        $query.=(isset($criterios["ruta"])) ? " AND re.id_ruta='{$criterios["ruta"]}'" : "";
         return $this->db->query($query)->result();
     }
 

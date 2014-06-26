@@ -10,10 +10,9 @@ class Acudiente_model extends CI_Model {
     public function obtenerAcudientes($idEstudiante) {
         $query = "SELECT a.id,a.nombres,a.apellidos,a.sexo,a.email,ea.parentesco,e.id id_estudiante,e.nombres nombres_estudiante,e.apellidos apellidos_estudiante
                   FROM estudiante_x_acudiente ea
-                  JOIN acudiente a ON a.id=ea.id_acudiente AND a.recibir_emails=1
+                  JOIN acudiente a ON a.id=ea.id_acudiente AND a.recibir_emails='1'
                   JOIN estudiante e ON e.id=ea.id_estudiante
                   WHERE ea.id_estudiante='$idEstudiante'";
-        // echo $query;
         return $this->db->query($query)->result();
     }
 
@@ -22,9 +21,9 @@ class Acudiente_model extends CI_Model {
                   FROM acudiente a 
                   LEFT JOIN estudiante_x_acudiente ea ON ea.id_acudiente=a.id
                   LEFT JOIN estudiante e ON e.id=ea.id_estudiante
-                  WHERE CONCAT(a.nombres,' ',a.apellidos) LIKE '%$query%'
-                  OR a.email LIKE '%$query%'
-                  OR CONCAT(e.nombres,' ',e.apellidos) LIKE '%$query%'";
+                  WHERE CONCAT(a.nombres,' ',a.apellidos) ILIKE '%$query%'
+                  OR a.email ILIKE '%$query%'
+                  OR CONCAT(e.nombres,' ',e.apellidos) ILIKE '%$query%'";
         //   echo $query;
         return $this->db->query($query)->result();
     }
@@ -38,20 +37,27 @@ class Acudiente_model extends CI_Model {
     }
 
     public function obtenerTodosLosAcudientes($criterios, $filasPorPagina, $inicio) {
-        $query = "SELECT SQL_CALC_FOUND_ROWS * 
+        $query = "SELECT  * 
                 FROM acudiente
                 WHERE true";
-        $query.=(isset($criterios["apellidos"])) ? " AND apellidos LIKE '%{$criterios["apellidos"]}%'" : "";
-        $query.=(isset($criterios["nombres"])) ? " AND nombres LIKE '%{$criterios["nombres"]}%'" : "";
-        $query.=(isset($criterios["telefono"])) ? " AND telefono1 LIKE '%{$criterios["telefono"]}%'" : "";
-        $query.=(isset($criterios["celular"])) ? " AND telefono3 LIKE '%{$criterios["celular"]}%'" : "";
-        $query.=(isset($criterios["email"])) ? " AND email LIKE '%{$criterios["email"]}%'" : "";
-        $query.=" ORDER BY apellidos ASC LIMIT $inicio,$filasPorPagina";
+        $query.=(isset($criterios["apellidos"])) ? " AND apellidos ILIKE '%{$criterios["apellidos"]}%'" : "";
+        $query.=(isset($criterios["nombres"])) ? " AND nombres ILIKE '%{$criterios["nombres"]}%'" : "";
+        $query.=(isset($criterios["telefono"])) ? " AND telefono1 ILIKE '%{$criterios["telefono"]}%'" : "";
+        $query.=(isset($criterios["celular"])) ? " AND telefono3 ILIKE '%{$criterios["celular"]}%'" : "";
+        $query.=(isset($criterios["email"])) ? " AND email ILIKE '%{$criterios["email"]}%'" : "";
+        $query.=" ORDER BY apellidos ASC LIMIT $filasPorPagina OFFSET $inicio";
         return $this->db->query($query)->result();
     }
 
-    public function cantidadRegistros() {
-        $query = "SELECT found_rows() AS cantidad";
+    public function cantidadRegistros($criterios) {
+        $query = "SELECT count(*) cantidad 
+                FROM acudiente
+                WHERE true";
+        $query.=(isset($criterios["apellidos"])) ? " AND apellidos ILIKE '%{$criterios["apellidos"]}%'" : "";
+        $query.=(isset($criterios["nombres"])) ? " AND nombres ILIKE '%{$criterios["nombres"]}%'" : "";
+        $query.=(isset($criterios["telefono"])) ? " AND telefono1 ILIKE '%{$criterios["telefono"]}%'" : "";
+        $query.=(isset($criterios["celular"])) ? " AND telefono3 ILIKE '%{$criterios["celular"]}%'" : "";
+        $query.=(isset($criterios["email"])) ? " AND email ILIKE '%{$criterios["email"]}%'" : "";
         return $this->db->query($query)->result();
     }
 

@@ -25,7 +25,7 @@ class Bitacora_estudiante extends CI_Model {
                   AND DATE(be.fecha_creacion) = DATE(now())
                   AND be.abordo='si'
                   AND be.arrivo is NULL
-                  AND a.recibir_emails=1";
+                  AND a.recibir_emails='1'";
         //echo $query;
         return $this->db->query($query)->result();
     }

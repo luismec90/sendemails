@@ -16,9 +16,9 @@ class Ruta_model extends CI_Model {
                   FROM ruta r
                   JOIN conductor c ON c.id=r.id_conductor
                   WHERE true";
-        $query.=(isset($criterios["conductor"])) ? " AND CONCAT(c.nombres,' ',c.apellidos) LIKE '%{$criterios["conductor"]}%'" : "";
-        $query.=(isset($criterios["ruta"])) ? " AND r.nombre LIKE '%{$criterios["ruta"]}%'" : "";
-        $query.=(isset($criterios["bus"])) ? " AND r.bus LIKE '%{$criterios["bus"]}%'" : "";
+        $query.=(isset($criterios["conductor"])) ? " AND CONCAT(c.nombres,' ',c.apellidos) ILIKE '%{$criterios["conductor"]}%'" : "";
+        $query.=(isset($criterios["ruta"])) ? " AND r.nombre ILIKE '%{$criterios["ruta"]}%'" : "";
+        $query.=(isset($criterios["bus"])) ? " AND r.bus ILIKE '%{$criterios["bus"]}%'" : "";
         $query.= " ORDER BY r.nombre ASC";
         return $this->db->query($query)->result();
     }

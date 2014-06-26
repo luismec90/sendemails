@@ -60,7 +60,7 @@ class CI_Controller {
     static function escapar(&$data) {
         foreach ($data as $key => $value) {
             if (!is_array($value)) {
-                $data[$key] = trim(mysql_real_escape_string($value));
+                $data[$key] = trim(pg_escape_string($value));
             }
         }
     }

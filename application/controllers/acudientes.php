@@ -28,7 +28,7 @@ class Acudientes extends CI_Controller {
 
         $data["acudientes"] = $this->acudiente_model->obtenerTodosLosAcudientes($_GET, $filasPorPagina, $inicio);
         $data['paginaActiva'] = $paginaActual;
-        $data["cantidadRegistros"] = $this->acudiente_model->cantidadRegistros();
+        $data["cantidadRegistros"] = $this->acudiente_model->cantidadRegistros($_GET);
         $data["cantidadRegistros"] = $data["cantidadRegistros"][0]->cantidad;
         $data["filasPorPagina"] = $filasPorPagina;
         $data['cantidadPaginas'] = ceil($data["cantidadRegistros"] / $filasPorPagina);

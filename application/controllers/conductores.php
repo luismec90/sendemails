@@ -44,6 +44,9 @@ class Conductores extends CI_Controller {
             "telefono_casa" => $telefono,
             "celular" => $celular,
             "email" => $email);
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
+        }
         $this->conductor_model->crear($data);
         $this->mensaje("Conductor creado exitosamente", "success", "conductores");
     }
@@ -69,6 +72,9 @@ class Conductores extends CI_Controller {
             "telefono_casa" => $telefono,
             "celular" => $celular,
             "email" => $email);
+        if ($fechaNacimiento == "") {
+            unset($data["fecha_nacimiento"]);
+        }
         $where = array("id" => $idConductor);
         $this->conductor_model->actualizar($data, $where);
         $this->mensaje("Conductor actualizado exitosamente", "success", "conductores");
