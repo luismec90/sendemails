@@ -79,6 +79,11 @@ class CI_Controller {
         }
     }
 
+    static function validateDate($date, $format = 'Y-m-d') {
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
+    }
+
     protected function mensaje($mensaje, $tipo, $redirect = "") {
         $this->session->set_flashdata('mensaje', $mensaje);
         $this->session->set_flashdata('tipo', $tipo);

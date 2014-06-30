@@ -33,7 +33,7 @@ class Guias extends CI_Controller {
         $password = $this->input->post("password");
         $celular = $this->input->post("celular");
         $email = $this->input->post("email");
-        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$usuario || !$password || !$celular || !$email) {
+        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$usuario || !$password || !$celular || !$email || ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "guias");
         }
         $existe = $this->usuario_model->obtenerUsuario(array("usuario" => $usuario));
@@ -69,7 +69,7 @@ class Guias extends CI_Controller {
         $password = $this->input->post("password");
         $celular = $this->input->post("celular");
         $email = $this->input->post("email");
-        if (!$idUsuario || !$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$usuario || !$celular || !$email) {
+        if (!$idUsuario || !$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$usuario || !$celular || !$email || ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "guias");
         }
         if ($password) {

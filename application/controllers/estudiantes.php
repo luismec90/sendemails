@@ -56,7 +56,7 @@ class Estudiantes extends CI_Controller {
         $telefonoDomocilio = $this->input->post("telefonoDomocilio");
         $celular = $this->input->post("celular");
         $rutas = $this->input->post("rutas");
-        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion) {
+        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion || ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "estudiantes");
         }
         if ($rutas) {
@@ -103,7 +103,7 @@ class Estudiantes extends CI_Controller {
         $telefonoDomocilio = $this->input->post("telefonoDomocilio");
         $celular = $this->input->post("celular");
         $rutas = $this->input->post("rutas");
-        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion) {
+        if (!$nombres || !$apellidos || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || !$grado || !$curso || !$direccion || ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "estudiantes");
         }
         if ($rutas) {

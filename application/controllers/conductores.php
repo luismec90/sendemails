@@ -33,7 +33,7 @@ class Conductores extends CI_Controller {
         $telefono = $this->input->post("telefono");
         $celular = $this->input->post("celular");
         $email = $this->input->post("email");
-        if (!$nombres || !$apellidos || !$cedula || !$sexo || ($sexo != "femenino" && $sexo != "masculino")) {
+        if (!$nombres || !$apellidos || !$cedula || !$sexo || ($sexo != "femenino" && $sexo != "masculino") || ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "conductores");
         }
         $data = array("nombres" => $nombres,
@@ -61,7 +61,7 @@ class Conductores extends CI_Controller {
         $telefono = $this->input->post("telefono");
         $celular = $this->input->post("celular");
         $email = $this->input->post("email");
-        if (!$idConductor || !$nombres || !$apellidos || !$cedula || !$sexo || ($sexo != "femenino" && $sexo != "masculino")) {
+        if (!$idConductor || !$nombres || !$apellidos || !$cedula || !$sexo || ($sexo != "femenino" && $sexo != "masculino")|| ($fechaNacimiento && !$this->validateDate($fechaNacimiento))) {
             $this->mensaje("Datos inválidos", "error", "conductores");
         }
         $data = array("nombres" => $nombres,
