@@ -83,17 +83,17 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input name="nombres" class="form-control" type="text" required>
+                            <input name="nombres" class="form-control" type="text" required  maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input name="apellidos" class="form-control"  type="text" required>
+                            <input name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Cédula: <em class="text-danger">*</em></label>
-                            <input name="cedula" class="form-control"  type="text" required>
+                            <input name="cedula" class="form-control"  type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Sexo: <em class="text-danger">*</em></label>
@@ -109,22 +109,22 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="">
+                            <input name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="" maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
-                            <input name="telefono" class="form-control"  type="text">
+                            <input name="telefono" class="form-control"  type="text" maxlength="30">
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input name="celular" class="form-control"  type="text">
+                            <input name="celular" class="form-control"  type="text" maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: </label>
-                            <input name="email" class="form-control"  type="email">
+                            <input name="email" class="form-control"  type="email" maxlength="80">
                         </div>
                     </div>
 
@@ -153,21 +153,21 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required>
+                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required>
+                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Cédula: <em class="text-danger">*</em></label>
-                            <input id="editar-cedula" name="cedula" class="form-control"  type="text" required>
+                            <input id="editar-cedula" name="cedula" class="form-control"  type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Sexo: <em class="text-danger">*</em></label>
-                            <select id="editar-sexo" name="sexo" class="form-control" required> 
+                            <select id="editar-sexo" name="sexo" class="form-control" required maxlength="30"> 
                                 <option value="">Seleccionar...</option>
                                 <option value="femenino">Femenino</option>
                                 <option value="masculino">Masculino</option>
@@ -177,21 +177,21 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input id="editar-fecha-nacimiento"  name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="">
+                            <input id="editar-fecha-nacimiento"  name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="" maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
-                            <input id="editar-telefono" name="telefono" class="form-control"  type="text">
+                            <input id="editar-telefono" name="telefono" class="form-control"  type="text" maxlength="30">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input id="editar-celular"  name="celular" class="form-control"  type="text">
+                            <input id="editar-celular"  name="celular" class="form-control"  type="text" maxlength="30"> 
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: </label>
-                            <input id="editar-email" name="email" class="form-control"  type="email">
+                            <input id="editar-email" name="email" class="form-control"  type="email" maxlength="80">
                         </div>
                     </div>
 

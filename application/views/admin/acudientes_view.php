@@ -106,11 +106,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input name="nombres" class="form-control" type="text" required>
+                            <input name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input name="apellidos" class="form-control"  type="text" required>
+                            <input name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -124,33 +124,33 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: <em class="text-danger">*</em></label>
-                            <input name="email" class="form-control"  type="email" required="">
+                            <input name="email" class="form-control"  type="email" required=""  maxlength="80">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio:<em class="text-danger">*</em></label>
-                            <input name="telefono1" class="form-control"  type="text" required="">
+                            <input name="telefono1" class="form-control"  type="text" required=""  maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono laboral: </label>
-                            <input name="telefono2" class="form-control"  type="text">
+                            <input name="telefono2" class="form-control"  type="text"  maxlength="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input name="telefono3" class="form-control"  type="text">
+                            <input name="telefono3" class="form-control"  type="text"  maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección del domicilio: </label>
-                            <input name="direccionDomocilio" class="form-control"  type="text">
+                            <input name="direccionDomocilio" class="form-control"  type="text"  maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección laboral: </label>
-                            <input name="direccionLaboral" class="form-control"  type="text">
+                            <input name="direccionLaboral" class="form-control"  type="text"  maxlength="45">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <br>
@@ -186,11 +186,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required>
+                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required>
+                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -204,33 +204,33 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: <em class="text-danger">*</em></label>
-                            <input id="editar-email" name="email" class="form-control"  type="email" required="">
+                            <input id="editar-email" name="email" class="form-control"  type="email" required="" maxlength="80">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio:<em class="text-danger">*</em></label>
-                            <input id="editar-telefono1" name="telefono1" class="form-control"  type="text" required="">
+                            <input id="editar-telefono1" name="telefono1" class="form-control"  type="text" required="" maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono laboral: </label>
-                            <input id="editar-telefono2" name="telefono2" class="form-control"  type="text">
+                            <input id="editar-telefono2" name="telefono2" class="form-control"  type="text" maxlength="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input id="editar-telefono3" name="telefono3" class="form-control"  type="text">
+                            <input id="editar-telefono3" name="telefono3" class="form-control"  type="text" maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección del domicilio: </label>
-                            <input id="editar-direccion-domicilio" name="direccionDomocilio" class="form-control"  type="text">
+                            <input id="editar-direccion-domicilio" name="direccionDomocilio" class="form-control"  type="text" maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección laboral: </label>
-                            <input id="editar-direccion-laboral" name="direccionLaboral" class="form-control"  type="text">
+                            <input id="editar-direccion-laboral" name="direccionLaboral" class="form-control"  type="text" maxlength="45">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <br>

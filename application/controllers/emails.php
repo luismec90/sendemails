@@ -82,7 +82,7 @@ class Emails extends CI_Controller {
                 }
                 $contenido = ob_get_contents();
                 ob_end_clean();
-                mail($email, $subject, $contenido, $headers);
+                enviarEmail($email, $subject, $contenido);
             }
         }
         $this->mensaje("Se han enviado " . sizeof($estudiantes) . " e-mails", "success", "ruta/$idRuta/$origen");
@@ -152,7 +152,7 @@ class Emails extends CI_Controller {
         include("application/views/template/custom_email.php");
         $contenido = ob_get_contents();
         ob_end_clean();
-        mail("no-reply@nationaltours.com.co", $subject, $contenido, $headers);
+        enviarEmail("no-reply@nationaltours.com.co", $subject, $contenido, $emails);
         if ($cantidadCorreos == 0) {
             $this->mensaje("No se ha enviado ningún e-mail", "success", "redactaremail/$idRuta/$origen");
         } else {
@@ -241,7 +241,7 @@ class Emails extends CI_Controller {
                 include("application/views/template/arrivo.php");
                 $contenido = ob_get_contents();
                 ob_end_clean();
-                mail($email, $subject, $contenido, $headers);
+                enviarEmail($email, $subject, $contenido);
             }
         }
         $this->mensaje("Se han enviado " . sizeof($estudiantes) . " e-mails", "success", "ruta/checkout/$idRuta/$origen");

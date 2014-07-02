@@ -80,11 +80,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input name="nombres" class="form-control" type="text" required>
+                            <input name="nombres" class="form-control" type="text" required  maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input name="apellidos" class="form-control"  type="text" required>
+                            <input name="apellidos" class="form-control"  type="text" required  maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -98,29 +98,29 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="">
+                            <input name="fechaNacimiento" class="form-control date-picker"  type="text" readonly=""  maxlength="10">
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Usuario: <em class="text-danger">*</em></label>
-                            <input name="usuario" class="form-control"  type="text" required>
+                            <input name="usuario" class="form-control"  type="text" required  maxlength="45">
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Password: <em class="text-danger">*</em></label>
-                            <input name="password" class="form-control"  type="text" required>
+                            <input name="password" class="form-control"  type="text" required  maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: <em class="text-danger">*</em></label>
-                            <input name="celular" class="form-control"  type="text" required>
+                            <input name="celular" class="form-control"  type="text" required maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: <em class="text-danger">*</em></label>
-                            <input name="email" class="form-control"  type="email" required>
+                            <input name="email" class="form-control"  type="email" required maxlength="80">
                         </div>
                     </div>
 
@@ -149,11 +149,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required>
+                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required>
+                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -167,29 +167,29 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input id="editar-fecha-nacimiento" name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="">
+                            <input id="editar-fecha-nacimiento" name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="" maxlength="10">
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Usuario: <em class="text-danger">*</em></label>
-                            <input id="editar-usuario" name="usuario" class="form-control"  type="text" required>
+                            <input id="editar-usuario" name="usuario" class="form-control"  type="text" required  maxlength="45">
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Password:</label>
-                            <input name="password" class="form-control"  type="text">
+                            <input name="password" class="form-control"  type="text"  maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: <em class="text-danger">*</em></label>
-                            <input id="editar-celular" name="celular" class="form-control"  type="text" required>
+                            <input id="editar-celular" name="celular" class="form-control"  type="text" required  maxlength="45">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> E-mail: <em class="text-danger">*</em></label>
-                            <input id="editar-email" name="email" class="form-control"  type="email" required>
+                            <input id="editar-email" name="email" class="form-control"  type="email" required maxlength="80">
                         </div>
                     </div>
 

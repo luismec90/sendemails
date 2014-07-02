@@ -77,18 +77,18 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombre de la ruta: <em class="text-danger">*</em></label>
-                            <input name="nombre" class="form-control"  type="text" required>
+                            <input name="nombre" class="form-control"  type="text" required maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Placa del bus: <em class="text-danger">*</em></label>
-                            <input name="bus" class="form-control"  type="text" required>
+                            <input name="bus" class="form-control"  type="text" required maxlength="10">
 
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Capacidad: <em class="text-danger">*</em></label>
-                            <input name="capacidad" class="form-control"  type="number" required>
+                            <input name="capacidad" class="form-control"  type="number" required maxlength="3">
                         </div>
                     </div>
 
@@ -127,17 +127,17 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombre de la ruta: <em class="text-danger">*</em></label>
-                            <input id="editar-nombre" name="nombre" class="form-control"  type="text" required>
+                            <input id="editar-nombre" name="nombre" class="form-control"  type="text" required maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Placa del bus: <em class="text-danger">*</em></label>
-                            <input id="editar-bus" name="bus" class="form-control"  type="text" required>
+                            <input id="editar-bus" name="bus" class="form-control"  type="text" required  maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Capacidad: <em class="text-danger">*</em></label>
-                            <input id="editar-capacidad" name="capacidad" class="form-control"  type="number" required>
+                            <input id="editar-capacidad" name="capacidad" class="form-control"  type="number" required maxlength="3">
                         </div>
                     </div>
                 </div>

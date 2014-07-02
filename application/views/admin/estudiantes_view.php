@@ -122,11 +122,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input name="nombres" class="form-control" type="text" required>
+                            <input name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input name="apellidos" class="form-control"  type="text" required>
+                            <input name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -140,33 +140,33 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Grado: <em class="text-danger">*</em></label>
-                            <input name="grado" class="form-control"  type="text" required="">
+                            <input name="grado" class="form-control"  type="text" required="" maxlength="30">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Curso: <em class="text-danger">*</em></label>
-                            <input name="curso" class="form-control"  type="text" required="">
+                            <input name="curso" class="form-control"  type="text" required="" maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección: <em class="text-danger">*</em></label>
-                            <input name="direccion" class="form-control"  type="text" required="">
+                            <input name="direccion" class="form-control"  type="text" required="" maxlength="45">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input name="fechaNacimiento" class="form-control date-picker"  type="text">
+                            <input name="fechaNacimiento" class="form-control date-picker" readonly="" type="text" maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
-                            <input name="telefonoDomocilio" class="form-control"  type="text">
+                            <input name="telefonoDomocilio" class="form-control"  type="text" maxlength="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input name="celular" class="form-control"  type="text">
+                            <input name="celular" class="form-control"  type="text" maxlength="10">
                         </div>
                     </div>
                     <div class="row">
@@ -209,11 +209,11 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Nombres: <em class="text-danger">*</em></label>
-                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required>
+                            <input id="editar-nombres" name="nombres" class="form-control" type="text" required maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Apellidos: <em class="text-danger">*</em></label>
-                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required>
+                            <input id="editar-apellidos" name="apellidos" class="form-control"  type="text" required maxlength="30">
                         </div>
                     </div>
                     <div class="row">
@@ -227,35 +227,35 @@
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Grado: <em class="text-danger">*</em></label>
-                            <input id="editar-grado"  name="grado" class="form-control"  type="text" required="">
+                            <input id="editar-grado"  name="grado" class="form-control"  type="text" required="" maxlength="30">
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Curso: <em class="text-danger">*</em></label>
-                            <input id="editar-curso"  name="curso" class="form-control"  type="text" required="">
+                            <input id="editar-curso"  name="curso" class="form-control"  type="text" required=""  maxlength="30">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Dirección: <em class="text-danger">*</em></label>
-                            <input id="editar-direccion"  name="direccion" class="form-control"  type="text" required="">
+                            <input id="editar-direccion"  name="direccion" class="form-control"  type="text" required=""  maxlength="45">
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de nacimiento: </label>
-                            <input id="editar-fecha-nacimiento" name="fechaNacimiento" class="form-control date-picker"  type="text">
+                            <input id="editar-fecha-nacimiento" name="fechaNacimiento" class="form-control date-picker"  type="text" readonly="" maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Teléfono del domicilio: </label>
-                            <input id="editar-telefono-domocilio" name="telefonoDomocilio" class="form-control"  type="text">
+                            <input id="editar-telefono-domocilio" name="telefonoDomocilio" class="form-control"  type="text"  maxlength="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Celular: </label>
-                            <input id="editar-celular" name="celular" class="form-control"  type="text">
+                            <input id="editar-celular" name="celular" class="form-control"  type="text" maxlength="10">
                         </div>
                     </div>
                     <div class="row">

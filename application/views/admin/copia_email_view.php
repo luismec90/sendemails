@@ -28,7 +28,7 @@
         </div>
     </div>
 </div>
-<!-- Modal crear conductor -->
+<!-- Modal crear email -->
 <div class="modal fade" id="modal-crear-email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <form action="<?= base_url() ?>copia_email/crear" method="POST" class="form-submit" autocomplete="off">
