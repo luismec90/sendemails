@@ -369,17 +369,17 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha de inicio: <em class="text-danger">*</em></label>
-                            <input id="destino-fecha-inicial" name="fechaInicial" class="form-control" type="text" required >
+                            <input id="destino-fecha-inicial" name="fechaInicial" class="form-control" type="text" required readonly="" maxlength="10">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label> Fecha final: <em class="text-danger">*</em></label>
-                            <input id="destino-fecha-final" name="fechaFinal" class="form-control"  type="text" required >
+                            <input id="destino-fecha-final" name="fechaFinal" class="form-control"  type="text" required  readonly="" maxlength="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
                             <label> Dirección: <em class="text-danger">*</em></label>
-                            <textarea id="destino-direccion" name="direccion" class="form-control" required></textarea>
+                            <textarea id="destino-direccion" name="direccion" class="form-control" required  maxlength="45"></textarea>
                         </div>
                     </div>
                 </div>

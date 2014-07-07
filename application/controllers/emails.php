@@ -133,7 +133,6 @@ class Emails extends CI_Controller {
                 $this->auditoria_x_acudiente_model->crearRegistro($lastId, $row->email);
             }
         }
-        $subject = utf8_decode($subject);
 
 
         $emails = array_unique(explode(",", $emails));

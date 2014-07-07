@@ -566,7 +566,7 @@ address{
     color:#555;
     margin-bottom:0;
 }
-.date-picker[readonly]{
+.date-picker[readonly],.hasDatepicker[readonly]{
     cursor:default;
     background-color: #fff;
     opacity: 1;

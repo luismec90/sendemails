@@ -4,12 +4,15 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 if (!function_exists('enviarEmail')) {
+    include_once("assets/libs/PHPMailer/class.phpmailer.php");
+    include_once("assets/libs/PHPMailer/class.smtp.php");
 
     function enviarEmail($to, $subject, $msj, $bcc = array()) {
-
-
-        include_once("assets/libs/PHPMailer/class.phpmailer.php");
-        include_once("assets/libs/PHPMailer/class.smtp.php");
+        if (!empty($bcc)) {
+            $bcc = explode(",", $bcc);
+        }else{
+            $bcc=array();
+        }
 
         $email = new PHPMailer();
         $email->IsSMTP();
@@ -17,13 +20,13 @@ if (!function_exists('enviarEmail')) {
         $email->SMTPSecure = "ssl";
         $email->Host = "smtp.gmail.com";
         $email->Port = 465;
-        $email->Username = 'ejemplo@email.com';
+        $email->Username = 'info.ticademia@gmail.com';
         $email->From = "no-reply@nationaltours.com.co";
-        $email->Password = "pass123";
+        $email->Password = "ticademia2014";
         $email->FromName = "National Tours";
         $email->Subject = utf8_decode($subject);
-        foreach ($bcc as $email) {
-            $email->AddBCC($email);
+        foreach ($bcc as $row) {
+            $email->AddBCC($row);
         }
         $email->MsgHTML($msj);
         $email->AddAddress($to, "destinatario");
