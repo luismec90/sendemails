@@ -1,14 +1,32 @@
 $(function() {
 
-    $(".date-picker").datepicker({
+
+    $("#desde").datepicker({
         changeMonth: true,
-        changeYear: true,
         dateFormat: "yy-mm-dd",
         monthNamesShort: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
         dayNamesMin: ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"],
-        maxDate: 0
+        onClose: function(selectedDate) {
+            $("#hasta").datepicker("option", "minDate", selectedDate);
+        }
     });
 
+    $("#hasta").datepicker({
+        changeMonth: true,
+        dateFormat: "yy-mm-dd",
+        monthNamesShort: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        dayNamesMin: ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"],
+        onClose: function(selectedDate) {
+            $("#desde").datepicker("option", "maxDate", selectedDate);
+        }
+    });
+
+    if ($("#hasta").val() != "") {
+        $("#desde").datepicker("option", "maxDate", $("#hasta").val());
+    }
+    if ($("#desde").val() != "") {
+        $("#hasta").datepicker("option", "minDate", $("#desde").val());
+    }
     $("#buscar").click(function() {
         $("#coverDisplay").css({
             "opacity": "1",
@@ -38,9 +56,13 @@ $(function() {
         if (abordo) {
             url += "abordo=" + abordo + "&";
         }
-        var fecha = $("#fecha").val();
-        if (fecha) {
-            url += "fecha=" + fecha + "&";
+        var desde = $("#desde").val();
+        if (desde) {
+            url += "desde=" + desde + "&";
+        }
+         var hasta = $("#hasta").val();
+        if (hasta) {
+            url += "hasta=" + hasta + "&";
         }
         var guia = $("#guia").val();
         if (guia) {
@@ -89,9 +111,13 @@ $(function() {
         if (abordo) {
             url += "abordo=" + abordo + "&";
         }
-        var fecha = $(paginacion).data("fecha");
-        if (fecha) {
-            url += "fecha=" + fecha + "&";
+        var desde = $(paginacion).data("desde");
+        if (desde) {
+            url += "desde=" + desde + "&";
+        }
+        var hasta = $(paginacion).data("hasta");
+        if (hasta) {
+            url += "hasta=" + hasta + "&";
         }
         var guia = $(paginacion).data("guia");
         if (guia) {

@@ -14,6 +14,7 @@ class Emails extends CI_Controller {
         $this->load->model('ruta_model');
         $this->load->model('usuario_model');
         $this->load->model('historico_model');
+        $this->load->model('estudiante_model');
     }
 
     public function enviarEmails() {
@@ -25,9 +26,9 @@ class Emails extends CI_Controller {
         $destino = $this->input->post('destino');
         $origen = ($destino == "casa") ? "colegio" : "casa";
         $textoDestino = ($destino == "casa") ? "el colegio" : "su casa";
-
+        $cantidadCorreos = 0;
         if (!$estudiantes) {
-            $this->mensaje("No se ha enviado ningún e-mail", "success", "ruta/$idRuta/$origen");
+            $this->mensaje("Envío de información realizado correctamente", "success", "ruta/$idRuta/$origen");
         }
         $guia = $this->usuario_model->obtenerUsuario(array('id' => $_SESSION["idUsuario"]));
         foreach ($estudiantes as $key => $value) {
@@ -45,9 +46,10 @@ class Emails extends CI_Controller {
 
             $this->bitacora_estudiante->crearRegistro($data);
             $acudientes = $this->acudiente_model->obtenerAcudientes($key);
+            $datosEstudiante = $this->estudiante_model->obtenerRegistro(array("id" => $key));
             $nombreRuta = $ruta[0]->nombre;
-            if ($acudientes) {
-                $data = array("estudiante" => $acudientes[0]->nombres_estudiante . " " . $acudientes[0]->apellidos_estudiante,
+            if ($datosEstudiante) {
+                $data = array("estudiante" => $datosEstudiante[0]->nombres . " " . $datosEstudiante[0]->apellidos,
                     "ruta" => $nombreRuta,
                     "bus" => $ruta[0]->bus,
                     "destino" => $destino,
@@ -82,10 +84,19 @@ class Emails extends CI_Controller {
                 }
                 $contenido = ob_get_contents();
                 ob_end_clean();
-                enviarEmail($email, $subject, $contenido);
+                if (!($origen == "casa")) {//Si el origen es la casa no enviar e-mails
+                    if (!$rutaEstudiante) {//Si el estudiante cambió de ruta enviar e-mails
+                        enviarEmail($email, $subject, $contenido);
+                        $cantidadCorreos++;
+                    }
+                }
             }
         }
-        $this->mensaje("Se han enviado " . sizeof($estudiantes) . " e-mails", "success", "ruta/$idRuta/$origen");
+        if ($cantidadCorreos == 0) {
+            $this->mensaje("Envío de información realizado correctamente", "success", "ruta/$idRuta/$origen");
+        } else {
+            $this->mensaje("Se han enviado " . $cantidadCorreos . " e-mails", "success", "ruta/$idRuta/$origen");
+        }
     }
 
     public function enviarEmailsRedactados() {
@@ -153,9 +164,9 @@ class Emails extends CI_Controller {
         ob_end_clean();
         enviarEmail("no-reply@nationaltours.com.co", $subject, $contenido, $emails);
         if ($cantidadCorreos == 0) {
-            $this->mensaje("No se ha enviado ningún e-mail", "success", "redactaremail/$idRuta/$origen");
+            $this->mensaje("Envío de información realizado correctamente", "success", "redactaremail/$idRuta/$origen");
         } else {
-            $this->mensaje("Se han enviado " . $cantidadCorreos . " e-mails", "success", "redactaremail/$idRuta/$origen");
+            $this->mensaje("Se han enviado " . $cantidadCorreos . " e-mail(s)", "success", "redactaremail/$idRuta/$origen");
         }
     }
 
@@ -177,8 +188,9 @@ class Emails extends CI_Controller {
         $destino = $this->input->post('destino');
         $origen = ($destino == "casa") ? "colegio" : "casa";
         $textoDestino = ($destino == "casa") ? "el destino acordado para esta ruta" : "el colegio";
+        $cantidadCorreos = 0;
         if (!$estudiantes) {
-            $this->mensaje("No se ha enviado ningún e-mail", "success", "ruta/checkout/$idRuta/$origen");
+            $this->mensaje("Envío de información realizado correctamente", "success", "ruta/checkout/$idRuta/$origen");
         }
         $guia = $this->usuario_model->obtenerUsuario(array('id' => $_SESSION["idUsuario"]));
         $nombreRuta = $ruta[0]->nombre;
@@ -209,11 +221,12 @@ class Emails extends CI_Controller {
             );
             $this->bitacora_estudiante->actualizarRegistro($data, $where);
             $acudientes = $this->acudiente_model->obtenerAcudientes($key);
-            if ($acudientes) {
+            $datosEstudiante = $this->estudiante_model->obtenerRegistro(array("id" => $key));
+            if ($datosEstudiante) {
                 $data = array(
                     "fecha_arrivo" => date("Y-m-d H:i:s")
                 );
-                $where = array("estudiante" => $acudientes[0]->nombres_estudiante . " " . $acudientes[0]->apellidos_estudiante,
+                $where = array("estudiante" => $datosEstudiante[0]->nombres . " " . $datosEstudiante[0]->apellidos,
                     "ruta" => $nombreRuta,
                     "bus" => $ruta[0]->bus,
                     "destino" => $destino,
@@ -240,10 +253,18 @@ class Emails extends CI_Controller {
                 include("application/views/template/arrivo.php");
                 $contenido = ob_get_contents();
                 ob_end_clean();
-                enviarEmail($email, $subject, $contenido);
+                if (!($destino == "colegio")) {//Si el destino es el colegio no enviar e-mails
+                    enviarEmail($email, $subject, $contenido);
+                    $cantidadCorreos++;
+                }
             }
         }
-        $this->mensaje("Se han enviado " . sizeof($estudiantes) . " e-mails", "success", "ruta/checkout/$idRuta/$origen");
+
+        if ($cantidadCorreos == 0) {
+            $this->mensaje("Envío de información realizado correctamente", "success", "ruta/checkout/$idRuta/$origen");
+        } else {
+            $this->mensaje("Se han enviado " . $cantidadCorreos . " e-mail(s)", "success", "ruta/checkout/$idRuta/$origen");
+        }
     }
 
 }

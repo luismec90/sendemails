@@ -6,6 +6,7 @@
             <ul class="nav nav-tabs">
                 <li class=""><a href="<?= base_url() ?>ruta/<?= $ruta[0]->id ?>/<?= $origen ?>">Check-in</a></li>
                 <li class="active"><a>Check-out</a></li>
+                    <button type="submit" class="btn btn-success pull-right">Enviar e-mails</button>
             </ul>
         </div>
         <div class="row">

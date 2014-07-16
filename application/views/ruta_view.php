@@ -29,6 +29,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a>Check-in</a></li>
                 <li class=""><a href="<?= base_url() ?>ruta/checkout/<?= $ruta[0]->id ?>/<?= $origen ?>">Check-out</a></li>
+                    <button type="submit" class="btn btn-success pull-right">Enviar e-mails</button>
             </ul>
         </div>
         <div class="row">

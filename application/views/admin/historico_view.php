@@ -37,14 +37,19 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-2">
-                        <input id="fecha" value="<?= (isset($_GET["fecha"])) ? $_GET["fecha"] : ""; ?>" type="text" class="form-control date-picker" placeholder="Fecha" autocomplete="off">
+                        <input id="desde" value="<?= (isset($_GET["desde"])) ? $_GET["desde"] : ""; ?>" type="text" class="form-control" placeholder="Desde" autocomplete="off">
+                    </div>
+                    <div class="col-sm-2">
+                        <input id="hasta" value="<?= (isset($_GET["hasta"])) ? $_GET["hasta"] : ""; ?>" type="text" class="form-control" placeholder="Hasta" autocomplete="off">
                     </div>
                     <div class="col-sm-2">
                         <input id="guia" value="<?= (isset($_GET["guia"])) ? $_GET["guia"] : ""; ?>" type="text" class="form-control" placeholder="Guia" autocomplete="off">
                     </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-primary" href="<?= base_url() ?>historico/toexcel?<?= (isset($_GET["estudiante"]) ? "estudiante=" . $_GET["estudiante"] : "") ?><?= (isset($_GET["ruta"]) ? "&ruta=" . $_GET["ruta"] : "") ?> <?= (isset($_GET["bus"]) ? "&bus=" . $_GET["bus"] : "") ?><?= (isset($_GET["destino"]) ? "&destino=" . $_GET["destino"] : "") ?><?= (isset($_GET["abordo"]) ? "&abordo=" . $_GET["abordo"] : "") ?><?= (isset($_GET["desde"]) ? "&desde=" . $_GET["desde"] : "") ?><?= (isset($_GET["hasta"]) ? "&hasta=" . $_GET["hasta"] : "") ?><?= (isset($_GET["guia"]) ? "&guia=" . $_GET["guia"] : "") ?>"
+                           >Exportar a Excel</a>
+                    </div>
 
-                    <div class="col-xs-4"></div>
-                    <div class="col-xs-4"></div>
                 </div>
             </div>
             <hr>
@@ -79,7 +84,8 @@
                     data-bus="<?php if (!empty($_GET["bus"])) echo $_GET["bus"]; ?>"
                     data-destino="<?php if (!empty($_GET["destino"])) echo $_GET["destino"]; ?>"
                     data-abordo="<?php if (!empty($_GET["abordo"])) echo $_GET["abordo"]; ?>"
-                    data-fecha="<?php if (!empty($_GET["fecha"])) echo $_GET["fecha"]; ?>"
+                    data-desde="<?php if (!empty($_GET["desde"])) echo $_GET["desde"]; ?>"
+                    data-hasta="<?php if (!empty($_GET["hasta"])) echo $_GET["hasta"]; ?>"
                     data-guia="<?php if (!empty($_GET["guia"])) echo $_GET["guia"]; ?>"
                     >
                     <li class="<?php

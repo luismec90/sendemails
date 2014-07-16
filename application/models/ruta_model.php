@@ -23,6 +23,11 @@ class Ruta_model extends CI_Model {
         return $this->db->query($query)->result();
     }
 
+    public function obtenerRutasOrdenadas($criterios = "") {
+        $query = "select  *,regexp_replace(nombre, '[a-zA-Z]', '', 'g')::integer orden1,regexp_replace(nombre, '[^a-zA-Z]', '', 'g') orden2 from ruta order by orden1,orden2";
+        return $this->db->query($query)->result();
+    }
+
     public function obtenerRegistros($where) {
         return $this->db->get_where('ruta', $where)->result();
     }
@@ -41,6 +46,11 @@ class Ruta_model extends CI_Model {
 
     public function ocupacionActual($idRuta) {
         $query = "SELECT COUNT(*) cantidad FROM ruta_x_estudiante WHERE id_ruta='$idRuta'";
+        return $this->db->query($query)->result();
+    }
+
+    public function obtenerBuses() {
+        $query = "SELECT DISTINCT(bus) nombre_bus FROM ruta ORDER BY nombre_bus";
         return $this->db->query($query)->result();
     }
 

@@ -10,7 +10,7 @@ class Fill_model extends CI_Model {
     }
 
     function poblarBD() {
-     
+
         $this->eliminarDatos();
         $this->usuario();
         $this->conductor();
@@ -1036,33 +1036,35 @@ class Fill_model extends CI_Model {
     }
 
     private function asunto() {
+
         $data = array(
             'id' => 1,
-            'asunto' => 'Cierre de V&iacute;a',
-            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy en el recorrido debido al cierre de la v&iacute;a.',
+            'asunto' => 'Cambio de Recorrido',
+            'mensaje' => 'Le informamos que la ruta presentar&aacute; cambios en el recorrido el d&iacute;a de hoy previamente autorizados por el colegio.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 2,
-            'asunto' => 'Tr&aacute;fico en la Zona',
-            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy en el recorrido debido al alto tr&aacute;fico en la zona.',
+            'asunto' => 'Retraso de Ruta',
+            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana. Ofrecemos disculpas por este inconveniente.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 3,
-            'asunto' => 'Retraso de Ruta',
-            'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy para recoger a su hijo.',
+            'asunto' => 'Cambio de Bus ',
+            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana ya que el veh&iacute;culo ha sido cambiado. Ofrecemos disculpas por este inconveniente. ',
         );
         $this->db->insert('asunto', $data);
 
-        $data = array(
-            'id' => 4,
-            'asunto' => 'Cambio de Recorrido',
-            'mensaje' => 'Le informamos que la ruta presentar&aacute; cambios en el recorrido el d&iacute;a de hoy previamente autorizados por el colegio.',
-        );
-        $this->db->insert('asunto', $data);
+        /*        $data = array(
+          'id' => 2,
+          'asunto' => 'Tr&aacute;fico en la Zona',
+          'mensaje' => 'Le informamos que la ruta presentar&aacute; retrasos el d&iacute;a de hoy en el recorrido debido al alto tr&aacute;fico en la zona.',
+          );
+          $this->db->insert('asunto', $data);
+         */
     }
 
     private function copia_email() {

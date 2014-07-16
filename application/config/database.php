@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '192.168.1.26:5432';
-$db['default']['username'] = 'mailer';
-$db['default']['password'] = 'm4il3r2014';
-$db['default']['database'] = 'mailer';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'postgres';
+$db['default']['password'] = '123';
+$db['default']['database'] = 'postgres';
 $db['default']['dbdriver'] = 'postgre';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

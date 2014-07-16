@@ -22,7 +22,7 @@
                 <table width="500" border="0" cellspacing="0" cellpadding="0" style="padding: 0px 10px; font-size: 15px;">
                     <tbody>
                         <tr >
-                            <td>Su <?= htmlentities($parentesco) ?>: <span style="color:#0965a5; font-weight: bold;"><?= htmlentities($nombreEstudiante) ?></span> <b><?= $textoAbordo ?></b> abord&oacute; la ruta: <span style="color:#0965a5; font-weight: bold;"><?= htmlentities($nombreRuta) ?></span>  el d&iacute;a: <span style="color:#0965a5; font-weight: bold;"><?= $fecha ?></span>, en <?= htmlentities($textoDestino) ?>. El cambio de ruta es de conocimiento del colegio.</td>
+                            <td>De acuerdo con el permiso otorgado por usted, su <?= htmlentities($parentesco) ?>: <span style="color:#0965a5; font-weight: bold;"><?= htmlentities($nombreEstudiante) ?></span> <b><?= $textoAbordo ?></b> abord&oacute; la ruta: <span style="color:#0965a5; font-weight: bold;"><?= htmlentities($nombreRuta) ?></span>  el d&iacute;a: <span style="color:#0965a5; font-weight: bold;"><?= $fecha ?></span>, en <?= htmlentities($textoDestino) ?>.</td>
                         </tr>
                     </tbody>
                 </table>

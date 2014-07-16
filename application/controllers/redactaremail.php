@@ -21,6 +21,7 @@ class Redactaremail extends CI_Controller {
         $data["tab"] = "redactaremail";
         $data["origen"] = $origen;
         $data["destino"] = $destino;
+        $data["buses"] = $this->ruta_model->obtenerBuses();
         $data["css"] = array("css/redactaremail");
         $data["js"] = array("libs/jQuery-Autocomplete/src/jquery.autocomplete", "js/redactaremail");
 

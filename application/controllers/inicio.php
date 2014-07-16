@@ -14,7 +14,7 @@ class Inicio extends CI_Controller {
     public function index() {
         $this->destruirSession();
 
-        $data["rutas"] = $this->ruta_model->obtenerRutas();
+        $data["rutas"] = $this->ruta_model->obtenerRutasOrdenadas();
 //        $this->load->view('include/header');
         $this->load->view('inicio_view', $data);
 //        $this->load->view('include/footer');

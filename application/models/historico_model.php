@@ -7,7 +7,7 @@ class Historico_model extends CI_Model {
         $this->load->database();
     }
 
-    public function obtenerRegistros($criterios, $filasPorPagina, $inicio) {
+    public function obtenerRegistros($criterios, $filasPorPagina = "", $inicio = "") {
         $query = "SELECT * 
                 FROM historico
                 WHERE TRUE";
@@ -16,9 +16,15 @@ class Historico_model extends CI_Model {
         $query.=(isset($criterios["bus"])) ? " AND bus ILIKE '%{$criterios["bus"]}%'" : "";
         $query.=(isset($criterios["destino"])) ? " AND destino = '{$criterios["destino"]}'" : "";
         $query.=(isset($criterios["abordo"])) ? " AND abordo = '{$criterios["abordo"]}'" : "";
-        $query.=(isset($criterios["fecha"])) ? " AND DATE(fecha_abordo)='{$criterios["fecha"]}'" : "";
+        $query.=(isset($criterios["desde"])) ? " AND DATE(fecha_abordo)>= '{$criterios["desde"]}'" : "";
+        $query.=(isset($criterios["hasta"])) ? " AND DATE(fecha_abordo)<= '{$criterios["hasta"]}'" : "";
         $query.=(isset($criterios["guia"])) ? " AND guia ILIKE '%{$criterios["guia"]}%'" : "";
-        $query.=" ORDER BY fecha_abordo DESC LIMIT $filasPorPagina OFFSET $inicio";
+
+        if ($filasPorPagina != "") {
+            $query.=" ORDER BY fecha_abordo DESC LIMIT $filasPorPagina OFFSET $inicio";
+        } else {
+            $query.=" ORDER BY fecha_abordo DESC";
+        }
         return $this->db->query($query)->result();
     }
 
@@ -31,7 +37,8 @@ class Historico_model extends CI_Model {
         $query.=(isset($criterios["bus"])) ? " AND bus ILIKE '%{$criterios["bus"]}%'" : "";
         $query.=(isset($criterios["destino"])) ? " AND destino = '{$criterios["destino"]}'" : "";
         $query.=(isset($criterios["abordo"])) ? " AND abordo = '{$criterios["abordo"]}'" : "";
-        $query.=(isset($criterios["fecha"])) ? " AND DATE(fecha_abordo)='{$criterios["fecha"]}'" : "";
+        $query.=(isset($criterios["desde"])) ? " AND DATE(fecha_abordo)>= '{$criterios["desde"]}'" : "";
+        $query.=(isset($criterios["hasta"])) ? " AND DATE(fecha_abordo)<= '{$criterios["hasta"]}'" : "";
         $query.=(isset($criterios["guia"])) ? " AND guia ILIKE '%{$criterios["guia"]}%'" : "";
         return $this->db->query($query)->result();
     }

@@ -31,12 +31,19 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div id="div-bus" class="form-group hide">
+                        <label for="asunto">Bus:</label>
+                        <select id="select-bus" name="bus" class="form-control" required>
+                            <option value="" data-mensaje="">Seleccionar...</option>
+                            <?php foreach ($buses as $row) { ?>
+                                <option value="<?= $row->nombre_bus ?>" ><?= $row->nombre_bus ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                     <hr>
                     <div class="form-group">
                         <label for="mensaje">Mensaje:</label>
-
                         <textarea id="mensaje" name="mensaje" id="mensaje" class="form-control" rows="5" readonly required></textarea>
-
                     </div>
                     <hr>
                     <input type="hidden" name="ruta" value="<?= $ruta[0]->id ?>" >

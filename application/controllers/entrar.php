@@ -17,6 +17,9 @@ class Entrar extends CI_Controller {
         $password = $this->input->post("password");
         $ruta = $this->input->post("ruta");
         $origen = $this->input->post("origen");
+        if (empty($ruta) || empty($origen)) {
+            $this->mensaje("Llenar el formulario", "error");
+        }
         $data = array(
             'usuario' => $usuario,
             'password' => sha1($password),

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://luisfer.co/sendemail/';
+$config['base_url']	= 'http://localhost/sendemail/';
 
 /*
 |--------------------------------------------------------------------------
