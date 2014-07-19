@@ -67,7 +67,7 @@
                                         <td style="padding:2px 0; color:#555;"><img width="12" height="12" src="<?= base_url() ?>assets/img/icono_tel.png"> 444-26-18</td>
                                     </tr> 
                                     <tr >
-                                        <td style="padding:2px 0; color:#555;"><img width="12" height="12" src="<?= base_url() ?>assets/img/icono_mail.png"> comercial@nationaltours.com</td>
+                                        <td style="padding:2px 0; color:#555;"><img width="12" height="12" src="<?= base_url() ?>assets/img/icono_mail.png"> national@une.net.co</td>
                                     </tr>
                                     <tr >
                                         <td style="padding:2px 0; color:#555;"><img width="12" height="12" src="<?= base_url() ?>assets/img/icono_web.png"> www.nationaltours.com.co</td>

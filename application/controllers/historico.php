@@ -24,6 +24,11 @@ class Historico extends CI_Controller {
             $inicio = ($_GET["page"] - 1) * $filasPorPagina;
             $paginaActual = $_GET["page"];
         }
+        
+        if (empty($_GET["desde"])) {
+            $_GET["desde"] = date("Y-m-d");
+        }
+
         $data["historico"] = $this->historico_model->obtenerRegistros($_GET, $filasPorPagina, $inicio);
         $data['paginaActiva'] = $paginaActual;
         $data["cantidadRegistros"] = $this->historico_model->cantidadRegistros($_GET);

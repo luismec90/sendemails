@@ -45,7 +45,7 @@
                     <div class="col-sm-2">
                         <input id="guia" value="<?= (isset($_GET["guia"])) ? $_GET["guia"] : ""; ?>" type="text" class="form-control" placeholder="Guia" autocomplete="off">
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 col-sm-offset-4">
                         <a class="btn btn-primary" href="<?= base_url() ?>historico/toexcel?<?= (isset($_GET["estudiante"]) ? "estudiante=" . $_GET["estudiante"] : "") ?><?= (isset($_GET["ruta"]) ? "&ruta=" . $_GET["ruta"] : "") ?> <?= (isset($_GET["bus"]) ? "&bus=" . $_GET["bus"] : "") ?><?= (isset($_GET["destino"]) ? "&destino=" . $_GET["destino"] : "") ?><?= (isset($_GET["abordo"]) ? "&abordo=" . $_GET["abordo"] : "") ?><?= (isset($_GET["desde"]) ? "&desde=" . $_GET["desde"] : "") ?><?= (isset($_GET["hasta"]) ? "&hasta=" . $_GET["hasta"] : "") ?><?= (isset($_GET["guia"]) ? "&guia=" . $_GET["guia"] : "") ?>"
                            >Exportar a Excel</a>
                     </div>

@@ -600,14 +600,14 @@ class Fill_model extends CI_Model {
         $data = array(
             'id' => 2,
             'id_estudiante' => 2,
-            'id_ruta' => 1
+            'id_ruta' => 2
         );
         $this->db->insert('ruta_x_estudiante', $data);
 
         $data = array(
             'id' => 3,
             'id_estudiante' => 3,
-            'id_ruta' => 1
+            'id_ruta' => 2
         );
         $this->db->insert('ruta_x_estudiante', $data);
 
@@ -781,7 +781,7 @@ class Fill_model extends CI_Model {
         $data = array(
             'id' => 1,
             'id_estudiante' => 1,
-            'id_acudiente' => 1,
+            'id_acudiente' => 2,
             'parentesco' => 'hijo'
         );
         $this->db->insert('estudiante_x_acudiente', $data);
@@ -796,7 +796,7 @@ class Fill_model extends CI_Model {
         $data = array(
             'id' => 3,
             'id_estudiante' => 3,
-            'id_acudiente' => 1,
+            'id_acudiente' => 3,
             'parentesco' => 'hijo'
         );
         $this->db->insert('estudiante_x_acudiente', $data);
@@ -1054,7 +1054,7 @@ class Fill_model extends CI_Model {
         $data = array(
             'id' => 3,
             'asunto' => 'Cambio de Bus ',
-            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana ya que el veh&iacute;culo ha sido cambiado. Ofrecemos disculpas por este inconveniente. ',
+            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana y el veh&iacute;culo ha sido cambiado por el de placas XXX. Ofrecemos disculpas por este inconveniente.',
         );
         $this->db->insert('asunto', $data);
 

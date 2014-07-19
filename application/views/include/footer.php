@@ -5,7 +5,7 @@
         <div  class="row">
             Dirección: <address>Calle 36 # 66b 106 Itagüí - Ditaires</address> <br>
             Teléfono: 444-26-18 <br>
-            E-mail:  <a href="mailto:omercial@nationaltours.com.co" class="color-white">comercial@nationaltours.com.co</a> <br>
+            E-mail:  <a href="mailto:omercial@nationaltours.com.co" class="color-white">national@une.net.co.co</a> <br>
             <a href="http://www.nationaltours.com.co/" target="_blank" class="color-white">www.nationaltours.com.co</a>  <br>
             Copyright © 2014 National Tours  <br>
         </div>

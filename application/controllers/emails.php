@@ -27,6 +27,9 @@ class Emails extends CI_Controller {
         $origen = ($destino == "casa") ? "colegio" : "casa";
         $textoDestino = ($destino == "casa") ? "el colegio" : "su casa";
         $cantidadCorreos = 0;
+        if (!$ruta || ($destino != "casa" && $destino != "colegio")) {
+            $this->mensaje("Intentalo nuevamente", "error", "");
+        }
         if (!$estudiantes) {
             $this->mensaje("Envío de información realizado correctamente", "success", "ruta/$idRuta/$origen");
         }

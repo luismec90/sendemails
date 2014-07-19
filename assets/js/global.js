@@ -1,5 +1,5 @@
 $(function() {
-    $("#toast-container").delay(3000).fadeOut('normal');
+    $("#toast-container").delay(2500).fadeOut('normal');
     $(".form-submit").submit(function() {
         $("#coverDisplay").css({
             "opacity": "1",

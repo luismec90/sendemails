@@ -16,7 +16,8 @@ class Bitacora_estudiante extends CI_Model {
     }
 
     public function obtenerAcudientes($idRuta, $destino) {
-        $query = "SELECT DISTINCT(a.email)  
+        if ($destino == "casa") {
+            $query = "SELECT (a.email)  
                   FROM bitacora_estudiante be
                   JOIN estudiante_x_acudiente ea ON ea.id_estudiante=be.id_estudiante
                   JOIN acudiente a ON ea.id_acudiente=a.id
@@ -26,7 +27,20 @@ class Bitacora_estudiante extends CI_Model {
                   AND be.abordo='si'
                   AND be.arrivo is NULL
                   AND a.recibir_emails='1'";
-        //echo $query;
+        } else if ($destino == "colegio") {
+            $query = "SELECT (a.email)  from ruta_x_estudiante re 
+                        JOIN estudiante_x_acudiente ea ON re.id_estudiante=ea.id_estudiante
+                        JOIN acudiente a ON ea.id_acudiente=a.id 
+                        WHERE re.id_ruta='$idRuta' and a.recibir_emails='1' AND a.id not in(
+                                           SELECT a.id  
+                                          FROM bitacora_estudiante be
+                                          JOIN estudiante_x_acudiente ea ON ea.id_estudiante=be.id_estudiante
+                                          JOIN acudiente a ON ea.id_acudiente=a.id
+                                          WHERE be.id_ruta='$idRuta'                
+                                          AND be.destino='$destino'
+                                          AND DATE(be.fecha_creacion) = DATE(now())
+                                          AND a.recibir_emails='1')";
+        }
         return $this->db->query($query)->result();
     }
 
