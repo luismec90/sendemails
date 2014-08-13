@@ -1047,14 +1047,14 @@ class Fill_model extends CI_Model {
         $data = array(
             'id' => 2,
             'asunto' => 'Retraso de Ruta',
-            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana. Ofrecemos disculpas por este inconveniente.',
+            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso el d&iacute;a de hoy. Ofrecemos disculpas por este inconveniente.',
         );
         $this->db->insert('asunto', $data);
 
         $data = array(
             'id' => 3,
             'asunto' => 'Cambio de Bus ',
-            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso esta mañana y el veh&iacute;culo ha sido cambiado por el de placas XXX. Ofrecemos disculpas por este inconveniente.',
+            'mensaje' => 'Le informamos que por motivo de fuerza mayor su(s) hijo(s) ser&aacute;(n) recogido(s) con retraso el d&iacute;a de hoy y el veh&iacute;culo ha sido cambiado por el de placas XXX. Ofrecemos disculpas por este inconveniente.',
         );
         $this->db->insert('asunto', $data);
 

@@ -25,7 +25,7 @@ class Emails extends CI_Controller {
         $ruta = $this->ruta_model->obtenerRuta($where);
         $destino = $this->input->post('destino');
         $origen = ($destino == "casa") ? "colegio" : "casa";
-        $textoDestino = ($destino == "casa") ? "el colegio" : "su casa";
+        $textoDestino = ($destino == "casa") ? "el colegio" : "el destino establecido";
         $cantidadCorreos = 0;
         if (!$ruta || ($destino != "casa" && $destino != "colegio")) {
             $this->mensaje("Intentalo nuevamente", "error", "");
@@ -134,6 +134,9 @@ class Emails extends CI_Controller {
 
         $subject = $this->input->post('asunto');
         $mensaje = $this->input->post('mensaje');
+        if (!$subject || !$mensaje) {
+            $this->mensaje("Datos incompletos", "error", "redactaremail/$idRuta/$origen");
+        }
         $data = array(
             "id_usuario" => $_SESSION["idUsuario"],
             "asunto" => $subject,
@@ -202,7 +205,7 @@ class Emails extends CI_Controller {
         foreach ($estudiantes as $key => $value) {
             if ($destino == "casa") {
                 $this->load->model('estudiante_model');
-                $textoDestino = "su casa";
+                $textoDestino = "el destino establecido";
                 $estudiante = $this->estudiante_model->obtenerRegistro(array("id" => $key));
                 if ($fechaActual >= $estudiante[0]->fecha_inicio_cambio_ruta && $fechaActual <= $estudiante[0]->fecha_fin_cambio_ruta) {
                     $textoDestino = $estudiante[0]->direccion_cambio_ruta;
